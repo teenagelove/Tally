@@ -39,11 +39,14 @@ private extension ContentView {
         return TextEditor(text: $vm.text)
             .font(.body)
             .padding(8)
+            .background(.colorBackground)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                     .shadow(radius: 3)
             )
+
     }
 
     var stats: some View {
