@@ -5,7 +5,6 @@
 //  Created by Danil Kazakov on 18.11.2025.
 //
 
-import Foundation
 import Observation
 
 @Observable
@@ -17,7 +16,18 @@ final class TallyViewModel {
         return words.count
     }
 
+    var symbolsCount: Int { text.count }
+
+    var symbolsWithoutSpacesCount: Int {
+        let charactersWithoutSpaces = text.filter { !$0.isWhitespace && !$0.isNewline }
+        return charactersWithoutSpaces.count
+    }
+
     func paste(_ strings: [String]) {
-        text = strings.first ?? ""
+        text += strings.first ?? ""
+    }
+
+    func clearText() {
+        text = ""
     }
 }

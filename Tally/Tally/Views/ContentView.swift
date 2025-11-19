@@ -25,11 +25,22 @@ private extension ContentView {
         HStack {
             Spacer()
 
+            Button {
+                viewModel.clearText()
+            } label: {
+                Image(systemName: "trash")
+                    .font(.system(size: 15))
+
+                Text(.clearTitle)
+            }
+            .focusEffectDisabled()
+            .liquidGlassButtonIfAvailable()
+
             PasteButton(payloadType: String.self) { strings in
                 viewModel.paste(strings)
             }
             .focusEffectDisabled()
-            .buttonStyle(.glass)
+            .liquidGlassButtonIfAvailable()
         }
     }
 
@@ -37,7 +48,7 @@ private extension ContentView {
         @Bindable var vm = viewModel
 
         return TextEditor(text: $vm.text)
-            .font(.body)
+            .font(.system(size: 16))
             .padding(8)
             .background(.colorBackground)
             .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -46,15 +57,33 @@ private extension ContentView {
                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                     .shadow(radius: 3)
             )
-
     }
 
+    @ViewBuilder
     var stats: some View {
-        VStack {
-            Text("\(viewModel.wordCount)")
-                .font(.largeTitle)
+        HStack(spacing: 40) {
+            VStack {
+                Text("\(viewModel.symbolsCount)")
+                    .font(.largeTitle)
 
-            Text(.wordsTitle(arg1: viewModel.wordCount))
+                Text(.symbolsTitle(arg1: viewModel.symbolsCount))
+            }
+
+            VStack {
+                Text("\(viewModel.symbolsWithoutSpacesCount)")
+                    .font(.largeTitle)
+
+                Text(.spaceTitle)
+                    .strikethrough()
+            }
+
+
+            VStack {
+                Text("\(viewModel.wordCount)")
+                    .font(.largeTitle)
+
+                Text(.wordsTitle(arg1: viewModel.wordCount))
+            }
         }
     }
 }

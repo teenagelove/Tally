@@ -3,7 +3,7 @@
 # <img src="./Assets/Logo.png" width="40" height="40" alt="Tally App Logo"> Tally
 
 <p align="left">
-  <img src="https://img.shields.io/badge/macOS-12%2B-000000?logo=apple&logoColor=white" alt="macOS 12+"/>
+  <img src="https://img.shields.io/badge/macOS-14%2B-000000?logo=apple&logoColor=white" alt="macOS 12+"/>
   <img src="https://img.shields.io/badge/Swift-5-F05138?logo=swift&logoColor=white" alt="Swift 5"/>
   <img src="https://img.shields.io/badge/SwiftUI-0A84FF?logo=swift&logoColor=white" alt="SwiftUI"/>
   <img src="https://img.shields.io/badge/MVVM-5856D6?logo=swift&logoColor=white" alt="MVVM Architecture"/>

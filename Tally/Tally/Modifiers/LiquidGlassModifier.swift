@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct LiquidGlassModifier: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension View {
+    @ViewBuilder
+    func liquidGlassButtonIfAvailable(prominent: Bool = false) -> some View {
+        if #available(macOS 26, *) {
+            self.buttonStyle(.glass)
+        } else {
+            self
+        }
     }
-}
-
-#Preview {
-    LiquidGlassModifier()
 }
